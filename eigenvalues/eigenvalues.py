@@ -13,5 +13,6 @@ def calculate_eigenvalues(matrix):
         return None
     
     eigenvalues = np.linalg.eigvals(matrix)
+    idx = np.lexsort((eigenvalues.imag, eigenvalues.real))
     
-    return eigenvalues
+    return eigenvalues[idx]
