@@ -7,7 +7,7 @@ def matrix_inverse(A):
     A = np.asarray(A, dtype=float)
     determinant = np.linalg.det(A)
 
-    if A.ndim != 2:
+    if A.ndim != 2 or A.shape[0] != A.shape[1]:
         return None
     
     if determinant == 0:
