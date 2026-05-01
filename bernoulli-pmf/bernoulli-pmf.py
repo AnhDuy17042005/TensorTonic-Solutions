@@ -6,11 +6,12 @@ def bernoulli_pmf_and_moments(x, p):
     """
     try:
         x = np.asarray(x, dtype=float)
+        p = float(p)
     except:
         raise ValueError("Cannot convert to numpy")
 
     # Compute PMF
-    pmf = p**x*(1 - p)**(1-x)
+    pmf = np.where(x==1, p, 1-p)
     # Compute mean
     mean = p
     # Compute variance
