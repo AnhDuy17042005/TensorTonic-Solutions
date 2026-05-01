@@ -10,7 +10,7 @@ def expected_value_discrete(x, p):
         return None
 
     if x.shape != p.shape:
-        return None
+        raise ValueError("Shape mismatch")
 
     if np.allclose(np.sum(p), 1.0) == False:
         raise ValueError("Probabilities must sum to 1")
