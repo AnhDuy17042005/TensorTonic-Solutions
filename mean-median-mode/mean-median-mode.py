@@ -20,9 +20,8 @@ def mean_median_mode(x):
     counter = Counter(x)
     max_freq = max(counter.values())
 
-    for k, v in counter.items():
-        if v == max_freq:
-            mode = k
-            break
+    # Find mode
+    modes = [k for k, v in counter.items() if v == max_freq]
+    mode = min(modes)
 
     return mean, median, mode
