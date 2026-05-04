@@ -7,6 +7,7 @@ def manhattan_distance(x, y):
     """
     try:
         x = np.asarray(x, dtype=float)
+        y = np.asarray(y, dtype=float)
     except:
         return None
     
