@@ -12,7 +12,12 @@ def min_max_scaling(data):
     min_data = np.min(data, axis=0, keepdims=True)
     max_data = np.max(data, axis=0, keepdims=True)
 
-    den = max_data - min_data
-    den = np.where(den == 0, 1, den)
+    denom = max_data - min_data
+    
+    scaled = np.where(
+        denom == 0,
+        0.0,
+        (data - min_data) / denom
+    )
 
-    return ((data - min_data)/den).tolist()
+    return scaled.tolist()
