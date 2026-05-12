@@ -11,5 +11,6 @@ def entropy_node(y):
 
     _, counts = np.unique(y, return_counts=True)
     prob = counts / len(y)
+    prob = prob[prob >= 0]
 
     return -np.sum(prob * np.log2(prob))
